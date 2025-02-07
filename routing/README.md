@@ -1,9 +1,0 @@
-# Routage de base
-Les routes Laravel les plus basiques acceptent un URI et une fermeture, offrant une méthode très simple et expressive pour définir les routes et le comportement sans fichiers de configuration de routage compliqués :
-```
-use Illuminate\Support\Facades\Route;
- 
-Route::get('/greeting', function () {
-    return 'Hello World';
-});
-```
