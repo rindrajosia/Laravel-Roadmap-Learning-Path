@@ -71,7 +71,7 @@ N’oubliez pas que tous les formulaires HTML pointant vers ou les routes défin
     ...
 </form>
 ```
-## MRedirect Routes
+## Redirect Routes
 Si vous définissez une route qui redirige vers une autre URI, vous pouvez utiliser la méthode `Route::redirect`. Cette méthode fournit un raccourci pratique qui vous permet de ne pas avoir à définir une route complète ou un contrôleur pour effectuer une redirection simple
 ```php
 Route::redirect('/here', '/there');
