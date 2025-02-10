@@ -21,12 +21,13 @@ Si votre application propose également une API sans état, vous pouvez activer 
 php artisan install:api
 ```
 La commande installe `install:api` de `Laravel Sanctum`, fournit une protection d’authentification par jeton d’API robuste mais simple qui peut être utilisée pour authentifier des consommateurs d’API tiers, des SPA ou des applications mobiles. De plus, la commande crée le fichier :`routes/api.php`
+Lorsque vous définissez des routes dans api.php, Laravel applique automatiquement le préfixe /api à toutes les routes. Cela signifie que les routes API seront accessibles via des URL comme /api/products ou /api/users. Ce préfixe permet de distinguer clairement les routes destinées à une API des routes web classiques. Si vous définissez vos routes API dans web.php, vous devrez ajouter manuellement ce préfixe à chaque route, ce qui peut rendre la gestion des routes plus complexe et moins claire. Sur une application Laravel avec beaucoup de routes c’est tout de suite beaucoup plus pratique et surtout plus clair.
 ```php
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 ```
-Ces routes sont sans état et sont affectées à la fonction `routes/api.php api Groupe middleware`. De plus, le préfixe d’URI est automatiquement appliqué à ces routes, vous n’avez donc pas besoin de l’appliquer manuellement à chaque route dans le fichier. Vous pouvez changer le préfixe en modifiant le fichier de votre application :`/api bootstrap/app.php`
+Ces routes sont sans état et sont affectées à la fonction `Groupe middleware api`. De plus, le préfixe d’URI est automatiquement appliqué à ces routes, vous n’avez donc pas besoin de l’appliquer manuellement à chaque route dans le fichier `routes/api.php`. Vous pouvez changer le préfixe en modifiant le fichier de votre application :`/api bootstrap/app.php`
 ```php
 ->withRouting(
     api: __DIR__.'/../routes/api.php',
