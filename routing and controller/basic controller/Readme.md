@@ -31,7 +31,7 @@ use App\Http\Controllers\UserController;
  
 Route::get('/user/{id}', [UserController::class, 'show']);
 ```
-Lorsqu’une requête entrante correspond à l’URI de route spécifié, la méthode de la classe est appelée et les paramètres de route sont transmis à la méthode.`show App\Http\Controllers\UserController`
+Lorsqu’une requête entrante correspond à l’URI de route spécifié, la méthode de la classe est appelée et les paramètres de route sont transmis à la méthode.`show` de `App\Http\Controllers\UserController`
 ## Invokable Controllers with One Specific Action
 Parfois, vous devez créer un contrôleur qui ne couvre pas les sept méthodes ingénieuses, comme index(), create(), store() etc. Vous avez juste besoin d’un contrôleur qui fait une chose et vous avez du mal à nommer cette méthode. 
 Plus de probleme, il y a la méthode `__invoke()`.
@@ -56,6 +56,10 @@ class ProfileController extends Controller
 }
 ```
 Comme vous pouvez le voir, vous pouvez également passer un paramètre à id. Pour appeler cette method+Controller, dans vos routes/web.php vous devez avoir ceci :
-`Route::get('user/{id}', 'ProfileController');`
+```php
+Route::get('user/{id}', 'ProfileController');
+```
 Vous pouvez également générer ce type de Controller, avec cette commande Artisan :
-`php artisan make:controller ProfileController --invokable`
+```php
+php artisan make:controller ProfileController --invokable
+```
