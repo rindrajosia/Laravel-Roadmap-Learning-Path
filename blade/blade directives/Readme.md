@@ -170,15 +170,15 @@ Si vous êtes dans une boucle imbriquée, vous pouvez accéder à la variable de
 @endforeach
 ```
 La variable `$loop` contient également une variété d’autres propriétés utiles :
-|   Propriété   |  Description    |
-|---    |:-:    |--:    |
-|   `$loop->index`       |   L’index de l’itération de la boucle actuelle (commence à 0).  |
-|   `$loop->iteration`   |   L’itération de la boucle actuelle (commence à 1).  |
-|   `$loop->remaining`   |   Les itérations restant dans la boucle.  |
-|   `$loop->count`       |   Nombre total d’éléments du tableau en cours d’itération.  |
-|   `$loop->first`       |   S’il s’agit de la première itération de la boucle.  |
-|   `$loop->last`        |   S’il s’agit de la dernière itération de la boucle.  |
-|   `$loop->even`        |   S’il s’agit d’une itération uniforme à travers la boucle.  |
-|   `$loop->odd`         |   	S’il s’agit d’une itération étrange à travers la boucle.  |
-|   `$loop->depth`       |   	Niveau d’imbrication de la boucle actuelle.  |
-|   `$loop->parent`      |   Lorsqu’il est dans une boucle imbriquée, la variable de boucle du parent.  |
+| Propriété         | Description |
+|------------------|------------|
+| `$loop->index`       | L’index de l’itération de la boucle actuelle (commence à 0). |
+| `$loop->iteration`   | L’itération de la boucle actuelle (commence à 1). |
+| `$loop->remaining`   | Les itérations restantes dans la boucle. |
+| `$loop->count`       | Nombre total d’éléments du tableau en cours d’itération. |
+| `$loop->first`       | S’il s’agit de la première itération de la boucle. |
+| `$loop->last`        | S’il s’agit de la dernière itération de la boucle. |
+| `$loop->even`        | S’il s’agit d’une itération paire. |
+| `$loop->odd`         | S’il s’agit d’une itération impaire. |
+| `$loop->depth`       | Niveau d’imbrication de la boucle actuelle. |
+| `$loop->parent`      | Lorsqu’il est dans une boucle imbriquée, la variable de boucle du parent. |
