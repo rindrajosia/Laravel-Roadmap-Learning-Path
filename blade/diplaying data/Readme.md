@@ -1,6 +1,7 @@
 # Introduction
  Les fichiers de modèle de Blade utilisent l’extension de fichier `.blade.php` et sont généralement stockés dans le répertoire `resources/views`.
- Les Blade vues peuvent être renvoyées à partir de routes ou de contrôleurs à l’aide du `global helper`. Les données peuvent être transmises à la vue Blade à l’aide du deuxième argument de l’helper `view`.
+ Les Blade vues peuvent être renvoyées à partir de routes ou de contrôleurs à l’aide du global helper `view`. 
+ Les données peuvent être transmises à la vue Blade à l’aide du deuxième argument de l’helper `view`.
  ```php
 Route::get('/', function () {
     return view('greeting', ['name' => 'Finn']);
@@ -43,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 ### Affichage des données non échappées
-Par défaut, les instructions Blade sont automatiquement envoyées via la fonction de PHP pour empêcher les attaques XSS. Si vous ne souhaitez pas que vos données soient échappées, vous pouvez utiliser la syntaxe suivante: `{{ }} htmlspecialchars`
+Par défaut, les instructions Blade sont automatiquement envoyées via la fonction `htmlspecialchars` de PHP pour empêcher les attaques XSS. Si vous ne souhaitez pas que vos données soient échappées, vous pouvez utiliser la syntaxe suivante: `{!! !!}`
 ```php
 Hello, {!! $name !!}.
 ```
@@ -70,7 +71,7 @@ Pour initialiser une variable JavaScript en passant un tableau a partir du vue, 
     var app = <?php echo json_encode($array); ?>;
 </script>
 ```
-Cependant, au lieu d’appeler manuellement , vous pouvez utiliser la methode `Illuminate\Support\Js::from` de `json_encode` et `SON.parse`. La méthode renverra une instruction JavaScript qui convertira l’objet ou le tableau donné en un objet JavaScript valide.
+Cependant, au lieu d’appeler manuellement , vous pouvez utiliser la methode `Illuminate\Support\Js::from` de `json_encode` et `JSON.parse`. La méthode renverra une instruction JavaScript qui convertira l’objet ou le tableau donné en un objet JavaScript valide.
 ```php
 <script>
     var app = {{ Illuminate\Support\Js::from($array) }};
@@ -83,7 +84,7 @@ Les dernières versions du squelette de l’application Laravel incluent la faç
 </script>
 ```
 ### La directive `@verbatim`
-Si vous affichez des variables JavaScript dans une grande partie de votre modèle, vous pouvez encapsuler le HTML dans la directive `@verbatim` afin de ne pas avoir à préfixer chaque instruction Blade echo avec le symbole `@`
+Si vous affichez des variables JavaScript dans une grande partie de votre modèle, vous pouvez encapsuler le HTML dans la directive `@verbatim` afin de ne pas avoir à préfixer chaque instruction d'affichage de Blade avec le symbole `@`
 ```php
 @verbatim
     <div class="container">
